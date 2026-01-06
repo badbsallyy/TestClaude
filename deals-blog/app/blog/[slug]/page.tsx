@@ -53,10 +53,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const postUrl =
-    typeof window !== "undefined"
-      ? window.location.href
-      : `https://dealshub.de/blog/${slug}`;
+  // Generate URL consistently on server side
+  const postUrl = `https://dealshub.de/blog/${slug}`;
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">

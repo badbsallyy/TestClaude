@@ -17,6 +17,8 @@ export const BackgroundBeams = React.memo(
     ];
 
     // Pre-generate random values for each path to avoid impure function calls during render
+    // Generate random animation values once on mount
+    // Using empty deps intentionally - we want stable random values per component instance
     const animationConfigs = useMemo(
       () =>
         paths.map(() => ({
@@ -24,6 +26,7 @@ export const BackgroundBeams = React.memo(
           duration: Math.random() * 10 + 10,
           delay: Math.random() * 10,
         })),
+      // paths is defined in component scope and never changes
       // eslint-disable-next-line react-hooks/exhaustive-deps
       []
     );

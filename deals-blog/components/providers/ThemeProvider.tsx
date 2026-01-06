@@ -1,3 +1,17 @@
+/**
+ * Theme Provider Component
+ *
+ * This file disables the react-hooks/set-state-in-effect rule because
+ * this is a standard hydration pattern. The setState calls in the useEffect
+ * are intentional and necessary to:
+ * 1. Sync theme state with localStorage after hydration
+ * 2. Track mounted state to prevent hydration mismatches
+ *
+ * This pattern is recommended by React for handling client-only state
+ * that depends on browser APIs (localStorage, matchMedia).
+ *
+ * @see https://react.dev/reference/react/useState#avoiding-recreating-the-initial-state
+ */
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
